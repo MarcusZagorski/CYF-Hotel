@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 const SearchResults = ({ results }) => {
   const tableTitles = Object.keys(results[0]);
 
@@ -8,12 +10,20 @@ const SearchResults = ({ results }) => {
           {tableTitles.map((title, index) => {
             return <td key={index}>{title}</td>;
           })}
+          <td>Number of Nights</td>
         </tr>
-        {results.map((result, index) => (
-          <tr key={index}>
-            {Object.values(result).map((value, index) => {
-              return <td key={index}>{value}</td>;
+
+        {results.map((result, resultIndex) => (
+          <tr key={resultIndex}>
+            {Object.values(result).map((value, valueIndex) => {
+              return <td key={valueIndex}>{value}</td>;
             })}
+            <td>
+              {dayjs(result.checkOutDate).diff(
+                dayjs(result.checkInDate),
+                "day"
+              )}
+            </td>
           </tr>
         ))}
       </tbody>
