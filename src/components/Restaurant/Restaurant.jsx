@@ -5,7 +5,9 @@ const Restaurant = () => {
     <section className="restaurant">
       <h3 className="restaurant__heading">Restaurant Orders</h3>
       <ul className="restaurant__list">
-        <Order />
+        <Order orderType="Pizzas" />
+        <Order orderType="Salad" />
+        <Order orderType="Chocolate cake" />
       </ul>
     </section>
   );
