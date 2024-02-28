@@ -1,0 +1,9 @@
+.table {
+  &__header {
+    background-color: pink;
+  }
+  &__row {
+    background-color: green;
+    color: white;
+  }
+}
