@@ -3,7 +3,9 @@ import { render, screen } from "@testing-library/react";
 import AppHeader from "./AppHeader.jsx";
 
 describe("App Header", () => {
-  it("should have a test, please write one", () => {
-    return true;
+  it("renders a header/banner", () => {
+    render(<AppHeader />);
+    const appHeader = screen.getByRole("banner");
+    expect(appHeader).toBeInTheDocument(AppHeader);
   });
 });
