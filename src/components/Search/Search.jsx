@@ -21,7 +21,6 @@ const Search = () => {
           onChange={(e) => setSearchInput(e.target.value)}
           value={searchInput}
         />
-        {console.log(searchInput)}
         <SearchButton />
       </form>
     </section>
