@@ -10,8 +10,8 @@ const Bookings = () => {
   const handleSearch = (searchInput) => {
     bookings.filter((booking) => {
       if (
-        booking.firstName === searchInput ||
-        booking.surname === searchInput
+        booking.firstName.toLowerCase() === searchInput.toLowerCase() ||
+        booking.surname.toLowerCase() === searchInput.toLowerCase()
       ) {
         setBookings([booking]);
         console.log(booking);
