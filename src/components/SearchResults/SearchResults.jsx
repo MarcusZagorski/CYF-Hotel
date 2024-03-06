@@ -7,13 +7,7 @@ function SearchResults({ results }) {
   const rowTitles = Object.keys(results[0]);
   const rowsData = results;
 
-  const [rowColor, setRowColor] = useState(false);
-
-  const styleRowColor = () => {
-    setRowColor((rowColor) => !rowColor);
-  };
-
-  const changeColorState = rowColor ? "table__row" : "";
+  const [selectedRow, setSelectedRow] = useState(null);
 
   return (
     <table>
@@ -32,12 +26,16 @@ function SearchResults({ results }) {
             "day"
           );
 
+          const isSelected = rowDataIndex === selectedRow;
+
+          const rowClass = isSelected ? "table__row" : "";
+
           return (
             <tr
               key={rowDataIndex}
               style={{ textAlign: "center" }}
-              onClick={styleRowColor}
-              className={changeColorState}
+              onClick={() => setSelectedRow(rowDataIndex)}
+              className={rowClass}
             >
               <td>{rowData.id}</td>
               <td>{rowData.title}</td>
