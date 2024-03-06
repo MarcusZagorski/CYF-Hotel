@@ -4,6 +4,13 @@ import dayjs from "dayjs";
 
 function SearchResults({ results }) {
   const rowTitles = Object.keys(results[0]);
+
+  const [rowColor, setRowColor] = useState(false);
+
+  const styleRowColor = () => {
+    setRowColor((rowColor) => !rowColor);
+  };
+
   const rowsData = results;
   return (
     <table>
@@ -21,12 +28,6 @@ function SearchResults({ results }) {
             dayjs(rowData.checkInDate),
             "day"
           );
-
-          const [rowColor, setRowColor] = useState(false);
-
-          const styleRowColor = () => {
-            setRowColor((rowColor) => !rowColor);
-          };
 
           const changeColorState = rowColor ? "table__row" : "";
           return (
