@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 
 const Bookings = () => {
   useEffect(() => {});
-  const search = (searchVal) => {
-    console.info("TO DO!", searchVal);
-  };
 
   const [bookings, setBookings] = useState(FakeBookings);
   // useEffect(() => {
@@ -15,10 +12,13 @@ const Bookings = () => {
   //     .then((res) => res.json())
   //     .then((data) => setBookings(data));
   // });
+  const handleSearch = (searchInput) => {
+    console.log(searchInput);
+  };
 
   return (
     <main className="bookings">
-      <Search search={search} />
+      <Search onSearchSubmit={handleSearch} />
       <SearchResults results={bookings} />
     </main>
   );

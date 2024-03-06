@@ -283,9 +283,7 @@ Depends on #17
 
 **Instructions:**
 
-Still in the `<Search />` component, add a `onSubmit` handler to the `<form>` tag. When the form is submitted (try clicking the search button), get the value of the state `searchInput` and pass it as a parameter
-
-to the `search` prop function that has been provided for you (the `search` prop is passed from the `<Bookings />` component).
+Still in the `<Search />` component, add a `onSubmit` handler to the `<form>` tag. When the form is submitted (try clicking the search button), get the value of the state `searchInput` and pass it as a parameter to the `search` prop function that has been provided for you (the `search` prop is passed from the `<Bookings />` component).
 
 **Note:** Your submit handler should take an `event` parameter and add the line `event.preventDefault()` to prevent the browser from implicitly submitting the form
 
