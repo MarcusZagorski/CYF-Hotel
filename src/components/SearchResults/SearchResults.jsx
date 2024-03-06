@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./SearchResults.scss";
 import dayjs from "dayjs";
+import CustomerProfile from "../../CustomerProfile/CustomerProfile";
 
 function SearchResults({ results }) {
   const rowTitles = Object.keys(results[0]);
+  const rowsData = results;
 
   const [rowColor, setRowColor] = useState(false);
 
@@ -11,7 +13,8 @@ function SearchResults({ results }) {
     setRowColor((rowColor) => !rowColor);
   };
 
-  const rowsData = results;
+  const changeColorState = rowColor ? "table__row" : "";
+
   return (
     <table>
       <thead>
@@ -29,7 +32,6 @@ function SearchResults({ results }) {
             "day"
           );
 
-          const changeColorState = rowColor ? "table__row" : "";
           return (
             <tr
               key={rowDataIndex}
@@ -46,6 +48,9 @@ function SearchResults({ results }) {
               <td>{rowData.checkInDate}</td>
               <td>{rowData.checkOutDate}</td>
               <td>{numberOfNights}</td>
+              <td>
+                <CustomerProfile id={rowData.id} />
+              </td>
             </tr>
           );
         })}
